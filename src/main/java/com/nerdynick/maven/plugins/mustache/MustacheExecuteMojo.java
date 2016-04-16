@@ -22,6 +22,7 @@ import org.apache.maven.project.MavenProject;
 import com.github.mustachejava.DefaultMustacheFactory;
 import com.github.mustachejava.Mustache;
 import com.google.common.base.Strings;
+import com.google.common.collect.ImmutableMap;
 import com.google.common.io.Files;
 
 @Mojo(name="mustache-execute", defaultPhase=LifecyclePhase.GENERATE_SOURCES)
@@ -51,16 +52,16 @@ public class MustacheExecuteMojo extends AbstractMojo {
         }
 		
 		Map<String, String> projectInfo = new HashMap<>();
-		projectInfo.put("artifactId", project.getArtifactId());
-		projectInfo.put("groupId", project.getGroupId());
-		projectInfo.put("name", project.getName());
-		projectInfo.put("description", Strings.nullToEmpty(project.getDescription()));
+		projectInfo.put("project-artifactId", project.getArtifactId());
+		projectInfo.put("project-groupId", project.getGroupId());
+		projectInfo.put("project-name", project.getName());
+		projectInfo.put("project-description", Strings.nullToEmpty(project.getDescription()));
 		
 		final List<Object> scope = new ArrayList<>();
 		if(props != null){
 			scope.add(props);
 		}
-		scope.add(project.getProperties());
+		scope.add(getProjectProps());
 		scope.add(projectInfo);
 		
 		getLog().info("Mustache Scope: "+ scope);
@@ -79,6 +80,17 @@ public class MustacheExecuteMojo extends AbstractMojo {
 			}
 			
 		}
+	}
+	
+	private Map<String, String> getProjectProps(){
+		Properties props = project.getProperties();
+		ImmutableMap.Builder<String, String> builder = ImmutableMap.builder();
+		
+		props.forEach((k,v)->{
+			builder.put(k.toString().replaceAll("\\.", "-"), v.toString());
+		});
+		
+		return builder.build();
 	}
 	
 	private Mustache createTemplate(File template, Charset charset) throws IOException {

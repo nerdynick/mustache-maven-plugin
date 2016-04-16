@@ -33,7 +33,7 @@ public class MavenProjectStub extends org.apache.maven.plugin.testing.stubs.Mave
 	public Properties getProperties() {
 		Properties props = new Properties();
 		
-		props.put("test-prop", "my-test-prop");
+		props.put("test.prop", "my-test-prop");
 		
 		return props;
 	}

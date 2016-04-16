@@ -27,6 +27,41 @@
 							<outputDir>target/test-harness</outputDir>
 							<inputFile>src/test/resources/mustache_test.txt</inputFile>
 						</param>
+						<param>
+							<outputDir>target/test-harness/scan</outputDir>
+							<inputDir>
+								<directory>src/test/resources/templates</directory>
+							</inputDir>
+						</param>
+						<param>
+							<outputDir>target/test-harness/scan/multi</outputDir>
+							<inputDirs>
+								<param>
+									<directory>src/test/resources/templates</directory>
+								</param>
+								<param>
+									<directory>src/test/resources/templates2</directory>
+								</param>
+							</inputDirs>
+						</param>
+						<param>
+							<outputDir>target/test-harness/scan/include</outputDir>
+							<inputDir>
+								<directory>src/test/resources/templates</directory>
+								<includes>
+									<param>.+_2.+</param>
+								</includes>
+							</inputDir>
+						</param>
+						<param>
+							<outputDir>target/test-harness/scan/exclude</outputDir>
+							<inputDir>
+								<directory>src/test/resources/templates</directory>
+								<excludes>
+									<param>.+_2.+</param>
+								</excludes>
+							</inputDir>
+						</param>
 					</templates>
 				</configuration>
 			</plugin>
