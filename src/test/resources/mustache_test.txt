@@ -1,1 +1,2 @@
 {{artifactId}} {{groupId}} {{name}} {{description}}
+{{test-prop}}

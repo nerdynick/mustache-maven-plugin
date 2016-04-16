@@ -24,8 +24,8 @@ import com.github.mustachejava.Mustache;
 import com.google.common.base.Strings;
 import com.google.common.io.Files;
 
-@Mojo(name="compile", defaultPhase=LifecyclePhase.GENERATE_SOURCES)
-public class CompileMojo extends AbstractMojo {
+@Mojo(name="mustache-execute", defaultPhase=LifecyclePhase.GENERATE_SOURCES)
+public class MustacheExecuteMojo extends AbstractMojo {
 	@Parameter(name="project", defaultValue="${project}")
 	private MavenProject project;
 	
@@ -56,14 +56,14 @@ public class CompileMojo extends AbstractMojo {
 		projectInfo.put("name", project.getName());
 		projectInfo.put("description", Strings.nullToEmpty(project.getDescription()));
 		
-		final List<Map<?,?>> scope = new ArrayList<>();
+		final List<Object> scope = new ArrayList<>();
 		if(props != null){
 			scope.add(props);
 		}
 		scope.add(project.getProperties());
 		scope.add(projectInfo);
 		
-		getLog().debug("Mustache Scope: "+ scope);
+		getLog().info("Mustache Scope: "+ scope);
 		
 		for(TemplateConfig t: templates){
 			try {

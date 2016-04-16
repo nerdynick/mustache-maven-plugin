@@ -18,8 +18,10 @@
 	<build>
 		<plugins>
 			<plugin>
+				<groupId>com.nerdynick.maven</groupId>
 				<artifactId>mustache-maven-plugin</artifactId>
 				<configuration>
+					<project implementation="com.nerdynick.maven.mustache.MavenProjectStub"/>
 					<templates>
 						<param>
 							<outputDir>target/test-harness</outputDir>
