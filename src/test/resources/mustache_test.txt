@@ -1,0 +1,1 @@
+{{artifactId}} {{groupId}} {{name}} {{description}}
