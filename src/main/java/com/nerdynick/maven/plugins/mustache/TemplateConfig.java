@@ -1,4 +1,4 @@
-package com.nerdynick.maven.mustache;
+package com.nerdynick.maven.plugins.mustache;
 
 import java.io.File;
 import java.io.FilenameFilter;

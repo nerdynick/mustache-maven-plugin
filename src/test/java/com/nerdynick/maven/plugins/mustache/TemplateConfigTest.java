@@ -1,4 +1,4 @@
-package com.nerdynick.maven.mustache;
+package com.nerdynick.maven.plugins.mustache;
 
 import static org.junit.Assert.*;
 
@@ -11,6 +11,7 @@ import org.apache.maven.model.FileSet;
 import org.junit.Test;
 
 import com.google.common.io.Files;
+import com.nerdynick.maven.plugins.mustache.TemplateConfig;
 
 public class TemplateConfigTest {
 

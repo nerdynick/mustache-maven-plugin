@@ -21,7 +21,7 @@
 				<groupId>com.nerdynick.maven</groupId>
 				<artifactId>mustache-maven-plugin</artifactId>
 				<configuration>
-					<project implementation="com.nerdynick.maven.mustache.MavenProjectStub"/>
+					<project implementation="com.nerdynick.maven.plugins.mustache.MavenProjectStub"/>
 					<templates>
 						<param>
 							<outputDir>target/test-harness</outputDir>

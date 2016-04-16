@@ -1,4 +1,4 @@
-package com.nerdynick.maven.mustache;
+package com.nerdynick.maven.plugins.mustache;
 
 import java.io.File;
 import java.nio.file.Files;
@@ -8,6 +8,8 @@ import org.apache.maven.plugin.testing.AbstractMojoTestCase;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
+
+import com.nerdynick.maven.plugins.mustache.MustacheExecuteMojo;
 
 public class MustacheExecuteMojoTest extends AbstractMojoTestCase {
 
