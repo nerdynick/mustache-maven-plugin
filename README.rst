@@ -14,8 +14,8 @@ Features
 
 * Scan a directory of template files and compile
   - Supports optional Includes and Excludes via RegEx pattern match
-    + Includes and Excludes can be used together. 
-    + Includes will take presidence over excludes so that you may include files that may match an exclude pattern.
+    - Includes and Excludes can be used together. 
+    - Includes will take presidence over excludes so that you may include files that may match an exclude pattern.
   - Filenames are preserved on the output
 * Execute on a single file or multiple files
   - Optionally rename the file on the output for single files
@@ -24,12 +24,12 @@ Features
   - Imports are not supported
 * Maven project information imported as variables
   - All properties defined in <property> are added by default
-    + All . in property names will be replaced with -
+    - All . in property names will be replaced with -
   - Project details are imported
-    + ArtifactId - {{project-artifactId}}
-    + GroupId - {{project-groupId}}
-    + Name - {{project-name}}
-    + Description - {{project-description}}
+    - ArtifactId - {{project-artifactId}}
+    - GroupId - {{project-groupId}}
+    - Name - {{project-name}}
+    - Description - {{project-description}}
 
 Usage
 -----
@@ -44,7 +44,7 @@ Basic plugin setup
 			<groupId>com.nerdynick.maven</groupId>
 			<artifactId>mustache-maven-plugin</artifactId>
 			<configuration>
-				<templates>....</templates>
+				<templates>.</templates>
 			</configuration>
 		</plugin>
 	</plugins>
@@ -56,18 +56,24 @@ Template setups
 .. code:: xml
 
 <templates>
+
 	<!-- Single File -->
+	
 	<param>
 		<outputDir>target/test-harness</outputDir>
 		<inputFile>src/test/resources/mustache_test.txt</inputFile>
 	</param>
+	
 	<!-- Single File with name change -->
+	
 	<param>
 		<outputDir>target/test-harness</outputDir>
 		<outputName>mustache.txt</outputName>
 		<inputFile>src/test/resources/mustache_test.txt</inputFile>
 	</param>
+	
 	<!-- Multiple File -->
+	
 	<param>
 		<outputDir>target/test-harness</outputDir>
 		<inputFiles>
@@ -75,14 +81,18 @@ Template setups
 			<parma>src/test/resources/mustache_test_2.txt</param>
 		</inputFiles>
 	</param>
+	
 	<!-- Directory Scan -->
+	
 	<param>
 		<outputDir>target/test-harness/scan</outputDir>
 		<inputDir>
 			<directory>src/test/resources/templates</directory>
 		</inputDir>
 	</param>
+	
 	<!-- Multiple Directory Scan -->
+	
 	<param>
 		<outputDir>target/test-harness/scan</outputDir>
 		<inputDirs>
@@ -94,7 +104,9 @@ Template setups
 			</param>
 		</inputDirs>
 	</param>
+	
 	<!-- Directory Scan with Include -->
+	
 	<param>
 		<outputDir>target/test-harness/scan/include</outputDir>
 		<inputDir>
@@ -104,7 +116,9 @@ Template setups
 			</includes>
 		</inputDir>
 	</param>
+	
 	<!-- Directory Scan with Exclude -->
+	
 	<param>
 		<outputDir>target/test-harness/scan/exclude</outputDir>
 		<inputDir>
@@ -114,7 +128,9 @@ Template setups
 			</excludes>
 		</inputDir>
 	</param>
+	
 	<!-- Combine a number of rules for 1 output dir. -->
+	
 	<param>
 		<outputDir>target/test-harness/scan/exclude</outputDir>
 		<outputName>mustache.txt</outputName>
@@ -145,3 +161,4 @@ Template setups
 		</inputDirs>
 	</param>
 </templates>
+

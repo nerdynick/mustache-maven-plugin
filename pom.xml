@@ -5,8 +5,10 @@
 	<artifactId>mustache-maven-plugin</artifactId>
 	<version>1.0.0</version>
 	<packaging>maven-plugin</packaging>
+	
 	<name>Mustache Maven Plugin</name>
 	<description>Maven Plugin for compiling Mustache.js templates using Maven Properties for variables</description>
+	<url>https://github.com/nerdynick/mustache-maven-plugin</url>
 
 	<scm>
 		<url>https://github.com/nerdynick/mustache-maven-plugin</url>
@@ -16,7 +18,12 @@
 		<url>https://github.com/nerdynick/mustache-maven-plugin/issues</url>
 		<system>Github</system>
 	</issueManagement>
-
+	<licenses>
+		<license>
+			<name>The Apache License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+		</license>
+	</licenses>
 
 	<dependencies>
 		<dependency>
