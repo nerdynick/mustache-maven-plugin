@@ -11,8 +11,9 @@
 	<url>https://github.com/nerdynick/mustache-maven-plugin</url>
 
 	<scm>
-		<url>https://github.com/nerdynick/mustache-maven-plugin</url>
-		<developerConnection>Nicholas Verbeck</developerConnection>
+		<connection>scm:git:git@github.com:nerdynick/mustache-maven-plugin.git</connection>
+  		<developerConnection>scm:git:git@github.com:nerdynick/mustache-maven-plugin.git</developerConnection>
+		<url>git@github.com:nerdynick/mustache-maven-plugin</url>
 	</scm>
 	<issueManagement>
 		<url>https://github.com/nerdynick/mustache-maven-plugin/issues</url>
@@ -24,6 +25,14 @@
 			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
 		</license>
 	</licenses>
+	<developers>
+		<developer>
+			<name>Nick Verbeck</name>
+			<email>nerdynick@gmail.com</email>
+			<id>nerdynick</id>
+			<url>http://nerdynick.com</url>
+		</developer>
+	</developers>
 
 	<dependencies>
 		<dependency>
