@@ -11,17 +11,6 @@
 	<description>Maven Plugin for compiling Mustache.js templates using Maven Properties for variables</description>
 	<url>https://github.com/nerdynick/mustache-maven-plugin</url>
 
-	<distributionManagement>
-		<snapshotRepository>
-			<id>github</id>
-			<url>https://maven.pkg.github.com/nerdynick/mustache-maven-plugin</url>
-		</snapshotRepository>
-		<repository>
-			<id>ossrh</id>
-			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
-		</repository>
-	</distributionManagement>
-
 	<scm>
 		<connection>scm:git:git@github.com:nerdynick/mustache-maven-plugin.git</connection>
 		<url>git@github.com:nerdynick/mustache-maven-plugin</url>
@@ -166,6 +155,16 @@
 	<profiles>
 		<profile>
 			<id>release</id>
+			<distributionManagement>
+				<snapshotRepository>
+					<id>github</id>
+					<url>https://maven.pkg.github.com/nerdynick/mustache-maven-plugin</url>
+				</snapshotRepository>
+				<repository>
+					<id>ossrh</id>
+					<url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
+				</repository>
+			</distributionManagement>
 			<build>
 				<plugins>
 					<plugin>

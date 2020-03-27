@@ -41,7 +41,7 @@ Basic plugin setup
 <build>
 	<plugins>
 		<plugin>
-			<groupId>com.nerdynick.maven</groupId>
+			<groupId>com.nerdynick</groupId>
 			<artifactId>mustache-maven-plugin</artifactId>
 			<configuration>
 				<templates>.</templates>
