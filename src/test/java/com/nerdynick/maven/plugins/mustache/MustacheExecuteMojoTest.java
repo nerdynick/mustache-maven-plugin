@@ -3,35 +3,21 @@ package com.nerdynick.maven.plugins.mustache;
 import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.Arrays;
 import java.util.List;
 
-import org.apache.maven.plugin.testing.AbstractMojoTestCase;
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
-import com.nerdynick.maven.plugins.mustache.MustacheExecuteMojo;
+import com.nerdynick.maven.plugins.template.AbstractTemplateMojoTestCase;
 
-public class MustacheExecuteMojoTest extends AbstractMojoTestCase {
-
-	@BeforeClass
-	public void setup() throws Exception {
-		super.setUp();
-	}
-	
-	@AfterClass
-	public void teardown() throws Exception {
-		super.tearDown();
+public class MustacheExecuteMojoTest extends AbstractTemplateMojoTestCase<MustacheExecuteMojo> {
+	@Override
+	protected String getMojoGoal() {
+		return "mustache-execute";
 	}
 
 	@Test
 	public void test() throws Exception {
-		File pom = new File(this.getClass().getClassLoader().getResource("test-pom.xml").toURI());
-		assertNotNull(pom);
-		assertTrue(pom.exists());
-		
-		MustacheExecuteMojo mojo = (MustacheExecuteMojo)this.lookupMojo("mustache-execute", pom);
+		final MustacheExecuteMojo mojo = this.getMojo();
 		mojo.execute();
 		
 		File output = getTestFile("target/test-harness/mustache_test.txt");
@@ -39,7 +25,7 @@ public class MustacheExecuteMojoTest extends AbstractMojoTestCase {
 		
 		assertNotNull(lines);
 		assertEquals(2, lines.size());
-		assertEquals("mustache-maven-plugin com.nerdynick.maven Mustache Maven Plugin Mustache Maven Plugin Desc", lines.get(0));
+		assertEquals("mustache-maven-plugin com.nerdynick Mustache Maven Plugin Mustache Maven Plugin Desc", lines.get(0));
 		assertEquals("my-test-prop", lines.get(1));
 		
 		//Check Scan

@@ -24,7 +24,7 @@ public class MavenProjectStub extends org.apache.maven.plugin.testing.stubs.Mave
 
 	private void setup() {
 		this.setArtifactId("mustache-maven-plugin");
-		this.setGroupId("com.nerdynick.maven");
+		this.setGroupId("com.nerdynick");
 		this.setName("Mustache Maven Plugin");
 		this.setDescription("Mustache Maven Plugin Desc");
 	}
